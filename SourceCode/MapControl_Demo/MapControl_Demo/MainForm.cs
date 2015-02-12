@@ -122,5 +122,7 @@ namespace MapControl_Demo
         {
             statusBarXY.Text = string.Format("{0}, {1}  {2}", e.mapX.ToString("#######.##"), e.mapY.ToString("#######.##"), axMapControl1.MapUnits.ToString().Substring(4));
         }
+
+       
     }
 }

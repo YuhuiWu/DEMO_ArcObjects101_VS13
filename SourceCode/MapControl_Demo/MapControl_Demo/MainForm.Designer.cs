@@ -49,12 +49,20 @@ namespace MapControl_Demo
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarXY = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.DataView = new System.Windows.Forms.TabPage();
+            this.LayoutView = new System.Windows.Forms.TabPage();
+            this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.DataView.SuspendLayout();
+            this.LayoutView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,7 +85,7 @@ namespace MapControl_Demo
             this.menuSeparator,
             this.menuExitApp});
             this.menuFile.Name = "menuFile";
-            this.menuFile.Size = new System.Drawing.Size(35, 20);
+            this.menuFile.Size = new System.Drawing.Size(37, 20);
             this.menuFile.Text = "File";
             // 
             // menuNewDoc
@@ -85,7 +93,7 @@ namespace MapControl_Demo
             this.menuNewDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuNewDoc.Image")));
             this.menuNewDoc.ImageTransparentColor = System.Drawing.Color.White;
             this.menuNewDoc.Name = "menuNewDoc";
-            this.menuNewDoc.Size = new System.Drawing.Size(163, 22);
+            this.menuNewDoc.Size = new System.Drawing.Size(171, 22);
             this.menuNewDoc.Text = "New Document";
             this.menuNewDoc.Click += new System.EventHandler(this.menuNewDoc_Click);
             // 
@@ -94,7 +102,7 @@ namespace MapControl_Demo
             this.menuOpenDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuOpenDoc.Image")));
             this.menuOpenDoc.ImageTransparentColor = System.Drawing.Color.White;
             this.menuOpenDoc.Name = "menuOpenDoc";
-            this.menuOpenDoc.Size = new System.Drawing.Size(163, 22);
+            this.menuOpenDoc.Size = new System.Drawing.Size(171, 22);
             this.menuOpenDoc.Text = "Open Document...";
             this.menuOpenDoc.Click += new System.EventHandler(this.menuOpenDoc_Click);
             // 
@@ -103,36 +111,36 @@ namespace MapControl_Demo
             this.menuSaveDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuSaveDoc.Image")));
             this.menuSaveDoc.ImageTransparentColor = System.Drawing.Color.White;
             this.menuSaveDoc.Name = "menuSaveDoc";
-            this.menuSaveDoc.Size = new System.Drawing.Size(163, 22);
+            this.menuSaveDoc.Size = new System.Drawing.Size(171, 22);
             this.menuSaveDoc.Text = "SaveDocument";
             this.menuSaveDoc.Click += new System.EventHandler(this.menuSaveDoc_Click);
             // 
             // menuSaveAs
             // 
             this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.Size = new System.Drawing.Size(163, 22);
+            this.menuSaveAs.Size = new System.Drawing.Size(171, 22);
             this.menuSaveAs.Text = "Save As...";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // menuSeparator
             // 
             this.menuSeparator.Name = "menuSeparator";
-            this.menuSeparator.Size = new System.Drawing.Size(160, 6);
+            this.menuSeparator.Size = new System.Drawing.Size(168, 6);
             // 
             // menuExitApp
             // 
             this.menuExitApp.Name = "menuExitApp";
-            this.menuExitApp.Size = new System.Drawing.Size(163, 22);
+            this.menuExitApp.Size = new System.Drawing.Size(171, 22);
             this.menuExitApp.Text = "Exit";
             this.menuExitApp.Click += new System.EventHandler(this.menuExitApp_Click);
             // 
             // axMapControl1
             // 
             this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axMapControl1.Location = new System.Drawing.Point(191, 52);
+            this.axMapControl1.Location = new System.Drawing.Point(3, 3);
             this.axMapControl1.Name = "axMapControl1";
             this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(668, 512);
+            this.axMapControl1.Size = new System.Drawing.Size(654, 480);
             this.axMapControl1.TabIndex = 2;
             this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
             this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced);
@@ -158,7 +166,7 @@ namespace MapControl_Demo
             // axLicenseControl1
             // 
             this.axLicenseControl1.Enabled = true;
-            this.axLicenseControl1.Location = new System.Drawing.Point(466, 278);
+            this.axLicenseControl1.Location = new System.Drawing.Point(125, 236);
             this.axLicenseControl1.Name = "axLicenseControl1";
             this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
             this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
@@ -188,16 +196,59 @@ namespace MapControl_Demo
             this.statusBarXY.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.statusBarXY.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.statusBarXY.Name = "statusBarXY";
-            this.statusBarXY.Size = new System.Drawing.Size(49, 17);
+            this.statusBarXY.Size = new System.Drawing.Size(50, 17);
             this.statusBarXY.Text = "Test 123";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControl1.Controls.Add(this.DataView);
+            this.tabControl1.Controls.Add(this.LayoutView);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(191, 52);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(668, 512);
+            this.tabControl1.TabIndex = 8;
+            // 
+            // DataView
+            // 
+            this.DataView.Controls.Add(this.axMapControl1);
+            this.DataView.Location = new System.Drawing.Point(4, 4);
+            this.DataView.Name = "DataView";
+            this.DataView.Padding = new System.Windows.Forms.Padding(3);
+            this.DataView.Size = new System.Drawing.Size(660, 486);
+            this.DataView.TabIndex = 0;
+            this.DataView.Text = "Data View";
+            this.DataView.UseVisualStyleBackColor = true;
+            // 
+            // LayoutView
+            // 
+            this.LayoutView.Controls.Add(this.axPageLayoutControl1);
+            this.LayoutView.Location = new System.Drawing.Point(4, 4);
+            this.LayoutView.Name = "LayoutView";
+            this.LayoutView.Padding = new System.Windows.Forms.Padding(3);
+            this.LayoutView.Size = new System.Drawing.Size(207, 191);
+            this.LayoutView.TabIndex = 1;
+            this.LayoutView.Text = "LayoutView";
+            this.LayoutView.UseVisualStyleBackColor = true;
+            // 
+            // axPageLayoutControl1
+            // 
+            this.axPageLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
+            this.axPageLayoutControl1.Name = "axPageLayoutControl1";
+            this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(201, 185);
+            this.axPageLayoutControl1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 586);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.axLicenseControl1);
-            this.Controls.Add(this.axMapControl1);
             this.Controls.Add(this.axTOCControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitter1);
@@ -216,6 +267,10 @@ namespace MapControl_Demo
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.DataView.ResumeLayout(false);
+            this.LayoutView.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axPageLayoutControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +293,10 @@ namespace MapControl_Demo
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusBarXY;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage DataView;
+        private System.Windows.Forms.TabPage LayoutView;
+        private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
     }
 }
 

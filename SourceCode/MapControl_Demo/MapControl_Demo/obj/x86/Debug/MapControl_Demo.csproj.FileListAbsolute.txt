@@ -1,0 +1,8 @@
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\bin\Debug\MapControl_Demo.exe
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\bin\Debug\MapControl_Demo.pdb
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.csprojResolveAssemblyReference.cache
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.MainForm.resources
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.Properties.Resources.resources
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.csproj.GenerateResource.Cache
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.exe
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.pdb
