@@ -6,3 +6,4 @@ E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x
 E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.csproj.GenerateResource.Cache
 E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.exe
 E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\obj\x86\Debug\MapControl_Demo.pdb
+E:\Technique\ArcObjects_VS_Demo\SourceCode\MapControl_Demo\MapControl_Demo\bin\Debug\MapControl_Demo.exe.config

@@ -210,6 +210,7 @@ namespace MapControl_Demo
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(668, 512);
             this.tabControl1.TabIndex = 8;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // DataView
             // 
@@ -228,7 +229,7 @@ namespace MapControl_Demo
             this.LayoutView.Location = new System.Drawing.Point(4, 4);
             this.LayoutView.Name = "LayoutView";
             this.LayoutView.Padding = new System.Windows.Forms.Padding(3);
-            this.LayoutView.Size = new System.Drawing.Size(207, 191);
+            this.LayoutView.Size = new System.Drawing.Size(660, 486);
             this.LayoutView.TabIndex = 1;
             this.LayoutView.Text = "LayoutView";
             this.LayoutView.UseVisualStyleBackColor = true;
@@ -239,7 +240,7 @@ namespace MapControl_Demo
             this.axPageLayoutControl1.Location = new System.Drawing.Point(3, 3);
             this.axPageLayoutControl1.Name = "axPageLayoutControl1";
             this.axPageLayoutControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axPageLayoutControl1.OcxState")));
-            this.axPageLayoutControl1.Size = new System.Drawing.Size(201, 185);
+            this.axPageLayoutControl1.Size = new System.Drawing.Size(654, 480);
             this.axPageLayoutControl1.TabIndex = 0;
             // 
             // MainForm
