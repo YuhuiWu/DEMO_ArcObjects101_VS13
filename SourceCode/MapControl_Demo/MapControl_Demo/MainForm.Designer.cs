@@ -62,6 +62,8 @@ namespace MapControl_Demo
             this.legendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertLegendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteLegendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNorthArrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scaleBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -293,7 +295,9 @@ namespace MapControl_Demo
             // 
             this.gridAndLegendToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addMapGridToolStripMenuItem,
-            this.legendToolStripMenuItem});
+            this.legendToolStripMenuItem,
+            this.addNorthArrowToolStripMenuItem,
+            this.scaleBarToolStripMenuItem});
             this.gridAndLegendToolStripMenuItem.Name = "gridAndLegendToolStripMenuItem";
             this.gridAndLegendToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
             this.gridAndLegendToolStripMenuItem.Text = "Grid and Legend";
@@ -327,6 +331,20 @@ namespace MapControl_Demo
             this.deleteLegendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteLegendToolStripMenuItem.Text = "Delete Legend";
             this.deleteLegendToolStripMenuItem.Click += new System.EventHandler(this.deleteLegendToolStripMenuItem_Click);
+            // 
+            // addNorthArrowToolStripMenuItem
+            // 
+            this.addNorthArrowToolStripMenuItem.Name = "addNorthArrowToolStripMenuItem";
+            this.addNorthArrowToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addNorthArrowToolStripMenuItem.Text = "Add North Arrow";
+            this.addNorthArrowToolStripMenuItem.Click += new System.EventHandler(this.addNorthArrowToolStripMenuItem_Click);
+            // 
+            // scaleBarToolStripMenuItem
+            // 
+            this.scaleBarToolStripMenuItem.Name = "scaleBarToolStripMenuItem";
+            this.scaleBarToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.scaleBarToolStripMenuItem.Text = "ScaleBar";
+            this.scaleBarToolStripMenuItem.Click += new System.EventHandler(this.scaleBarToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -393,6 +411,8 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem legendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertLegendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteLegendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNorthArrowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scaleBarToolStripMenuItem;
     }
 }
 

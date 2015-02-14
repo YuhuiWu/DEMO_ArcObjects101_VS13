@@ -82,13 +82,7 @@ namespace MapControl_Demo
 
         private void axSymbologyControl1_OnItemSelected(object sender, ISymbologyControlEvents_OnItemSelectedEvent e)
         {
-            ISymbologyStyleClass symbologyStyleClass =
-              axSymbologyControl1.GetStyleClass(axSymbologyControl1.StyleClass);
-            stdole.IPictureDisp picture = symbologyStyleClass.PreviewItem
-                (m_styleGalleryItem, pictureBox1.Width, pictureBox1.Height);
-            System.Drawing.Image image = System.Drawing.Image.
-                FromHbitmap(new System.IntPtr(picture.Handle));
-            pictureBox1.Image = image;
+            m_styleGalleryItem = e.styleGalleryItem as IStyleGalleryItem;
         }
         private void PreviewImage()
         {

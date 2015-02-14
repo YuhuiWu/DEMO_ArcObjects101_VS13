@@ -89,6 +89,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNortharrow.cs" />
+    <Compile Include="AddScaleBar.cs" />
     <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="CreateNewDocument.cs" />
     <Compile Include="EagleEyes.cs">
@@ -155,6 +157,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddNortharrow.bmp" />
+    <EmbeddedResource Include="AddNortharrow.cur" />
+    <EmbeddedResource Include="AddScaleBar.bmp" />
+    <EmbeddedResource Include="AddScaleBar.cur" />
     <Content Include="App.ico" />
     <Content Include="Earth.ico" />
     <EmbeddedResource Include="OpenAttributeTableCmd.bmp" />

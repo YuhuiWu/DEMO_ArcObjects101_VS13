@@ -465,5 +465,19 @@ namespace MapControl_Demo
             this.Activate();
             return symbol;
         }
+
+        private void addNorthArrowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand addNorthArrow = new AddNortharrow();
+            addNorthArrow.OnCreate(axPageLayoutControl1.Object);
+            axPageLayoutControl1.CurrentTool = addNorthArrow as ITool;
+        }
+
+        private void scaleBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand addScaleBar = new AddScaleBar();
+            addScaleBar.OnCreate(axPageLayoutControl1.Object);
+            axPageLayoutControl1.CurrentTool = addScaleBar as ITool;
+        }
     }
 }
