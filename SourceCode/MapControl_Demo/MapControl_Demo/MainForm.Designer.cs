@@ -57,6 +57,11 @@ namespace MapControl_Demo
             this.addCadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.method1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.method2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gridAndLegendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addMapGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.legendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertLegendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteLegendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -73,7 +78,8 @@ namespace MapControl_Demo
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
-            this.addCadToolStripMenuItem});
+            this.addCadToolStripMenuItem,
+            this.gridAndLegendToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -283,6 +289,45 @@ namespace MapControl_Demo
             this.method2ToolStripMenuItem.Text = "Method #2";
             this.method2ToolStripMenuItem.Click += new System.EventHandler(this.method2ToolStripMenuItem_Click);
             // 
+            // gridAndLegendToolStripMenuItem
+            // 
+            this.gridAndLegendToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addMapGridToolStripMenuItem,
+            this.legendToolStripMenuItem});
+            this.gridAndLegendToolStripMenuItem.Name = "gridAndLegendToolStripMenuItem";
+            this.gridAndLegendToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.gridAndLegendToolStripMenuItem.Text = "Grid and Legend";
+            // 
+            // addMapGridToolStripMenuItem
+            // 
+            this.addMapGridToolStripMenuItem.Name = "addMapGridToolStripMenuItem";
+            this.addMapGridToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addMapGridToolStripMenuItem.Text = "Add Map Grid";
+            this.addMapGridToolStripMenuItem.Click += new System.EventHandler(this.addMapGridToolStripMenuItem_Click);
+            // 
+            // legendToolStripMenuItem
+            // 
+            this.legendToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.insertLegendToolStripMenuItem,
+            this.deleteLegendToolStripMenuItem});
+            this.legendToolStripMenuItem.Name = "legendToolStripMenuItem";
+            this.legendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.legendToolStripMenuItem.Text = "Legend";
+            // 
+            // insertLegendToolStripMenuItem
+            // 
+            this.insertLegendToolStripMenuItem.Name = "insertLegendToolStripMenuItem";
+            this.insertLegendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.insertLegendToolStripMenuItem.Text = "Insert Legend";
+            this.insertLegendToolStripMenuItem.Click += new System.EventHandler(this.insertLegendToolStripMenuItem_Click);
+            // 
+            // deleteLegendToolStripMenuItem
+            // 
+            this.deleteLegendToolStripMenuItem.Name = "deleteLegendToolStripMenuItem";
+            this.deleteLegendToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteLegendToolStripMenuItem.Text = "Delete Legend";
+            this.deleteLegendToolStripMenuItem.Click += new System.EventHandler(this.deleteLegendToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,6 +388,11 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem addCadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem method1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem method2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gridAndLegendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addMapGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem legendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertLegendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteLegendToolStripMenuItem;
     }
 }
 

@@ -315,5 +315,97 @@ namespace MapControl_Demo
                 }
             }
         }
+
+        private void addMapGridToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IActiveView pActiveView = m_controlsSynchronizer.PageLayoutControl.PageLayout 
+                as IActiveView;
+            CreateGrid(pActiveView, axPageLayoutControl1.PageLayout);
+        }
+        public void CreateGrid(IActiveView activeView, IPageLayout pageLayout)
+        {
+            IMapGrid mapGrid = new GraticuleClass();
+            mapGrid.Name = "Map Grid";
+            IColor color = new RgbColorClass(); color.RGB = 0XBBBBBB;
+
+            ICartographicLineSymbol cartographicLineSymbol = new CartographicLineSymbolClass();
+            cartographicLineSymbol.Cap = esriLineCapStyle.esriLCSButt;
+            cartographicLineSymbol.Color = color; cartographicLineSymbol.Width = 2;
+            mapGrid.LineSymbol = (ILineSymbol)cartographicLineSymbol;
+            mapGrid.Border = null;
+            mapGrid.TickLength = 15;
+
+            cartographicLineSymbol = new CartographicLineSymbolClass();
+            cartographicLineSymbol.Cap = esriLineCapStyle.esriLCSButt;
+            cartographicLineSymbol.Color = color; cartographicLineSymbol.Width = 1;
+            mapGrid.TickLineSymbol = (ILineSymbol)cartographicLineSymbol;
+            mapGrid.TickMarkSymbol = null; mapGrid.SubTickCount = 5; mapGrid.SubTickLength = 10;
+
+            cartographicLineSymbol = new CartographicLineSymbolClass();
+            cartographicLineSymbol.Cap = esriLineCapStyle.esriLCSButt;
+            cartographicLineSymbol.Color = color; cartographicLineSymbol.Width = 0.2;
+            mapGrid.SubTickLineSymbol = (ILineSymbol)cartographicLineSymbol;
+
+            IGridLabel gridLabel = mapGrid.LabelFormat;
+            gridLabel.LabelOffset = 15;
+            mapGrid.SetTickVisibility(true, true, true, true);
+            mapGrid.SetSubTickVisibility(true, true, true, true);
+            mapGrid.SetLabelVisibility(true, true, true, true);
+            mapGrid.Visible = true;
+            IMeasuredGrid measuredGrid = mapGrid as IMeasuredGrid;
+            measuredGrid.FixedOrigin = true;
+            measuredGrid.XIntervalSize = 10;
+            measuredGrid.XOrigin = 5; //Shift grid 5
+            measuredGrid.YIntervalSize = 10; //Parallel interval.
+            measuredGrid.YOrigin = 5; //Shift grid 5
+
+            IMap map = activeView.FocusMap;
+            IGraphicsContainer graphicsContainer = pageLayout as IGraphicsContainer;
+            IFrameElement frameElement = graphicsContainer.FindFrame(map);
+            IMapFrame mapFrame = frameElement as IMapFrame;
+            IMapGrids mapGrids = null;
+            mapGrids = mapFrame as IMapGrids;
+            mapGrids.AddMapGrid(mapGrid);
+
+            activeView.PartialRefresh(esriViewDrawPhase.esriViewBackground, null, null);
+        }
+
+        private void insertLegendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IGraphicsContainer graphicsContainer =
+                m_controlsSynchronizer.PageLayoutControl.GraphicsContainer;
+            IMapFrame mapFrame = (IMapFrame)graphicsContainer.FindFrame
+                (m_controlsSynchronizer.PageLayoutControl.ActiveView.FocusMap);
+            if (mapFrame == null) return;
+            UID uID = new UIDClass(); 
+            uID.Value = "esriCarto.Legend";
+            IMapSurroundFrame mapSurroundFrame = mapFrame.CreateSurroundFrame(uID, null);
+            if (mapSurroundFrame == null) return;
+            if (mapSurroundFrame.MapSurround == null) return;
+            mapSurroundFrame.MapSurround.Name = "Legend";
+            IEnvelope envelope = new Envelope() as IEnvelope;
+            envelope.PutCoords(1, 1, 3.4, 2.4);
+            IElement element = (IElement)mapSurroundFrame;
+            element.Geometry = envelope;
+            m_controlsSynchronizer.PageLayoutControl.AddElement(element,
+                Type.Missing, Type.Missing, "Legend", 0);
+            m_controlsSynchronizer.PageLayoutControl.ActiveView.
+                PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
+
+        private void deleteLegendToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IGraphicsContainer graphicsContainer = m_controlsSynchronizer.
+                PageLayoutControl.GraphicsContainer;
+            IElement element = m_controlsSynchronizer.PageLayoutControl.
+                FindElementByName("Legend", 1);
+
+            if (element != null)
+            {
+                graphicsContainer.DeleteElement(element);
+                m_controlsSynchronizer.PageLayoutControl.ActiveView.
+                    PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+            }
+        }
     }
 }
