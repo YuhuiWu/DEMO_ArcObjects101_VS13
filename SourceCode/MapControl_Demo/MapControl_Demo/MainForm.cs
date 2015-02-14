@@ -12,6 +12,8 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.ADF;
 using ESRI.ArcGIS.SystemUI;
+using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.Display;
 
 namespace MapControl_Demo
 {
@@ -23,6 +25,7 @@ namespace MapControl_Demo
         IMapDocument m_MapDocument = new MapDocumentClass();
         private ControlsSynchronizer m_controlsSynchronizer = null;
         private IPageLayoutControl3 m_pageLayoutControl = null;//Layout View
+        private EagleEyes poverView;
         #endregion
 
         #region class constructor
@@ -158,7 +161,7 @@ namespace MapControl_Demo
             {
                 //enable the Save manu and write the doc name to the statusbar
                 menuSaveDoc.Enabled = true;
-                statusBarXY.Text = Path.GetFileName(m_mapDocumentName);
+                statusBarXY.Text = System.IO.Path.GetFileName(m_mapDocumentName);
             }
         }
 
@@ -179,6 +182,46 @@ namespace MapControl_Demo
                 axToolbarControl1.SetBuddyControl(axPageLayoutControl1);
                 m_controlsSynchronizer.ActivatePageLayout();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IHookHelper hookHelper = new HookHelperClass();
+            //hookHelper.Hook = axMapControl1.Object;
+            hookHelper.Hook = m_controlsSynchronizer.MapControl.Object;
+            poverView = new EagleEyes(hookHelper);
+            poverView.Show();
+        }
+
+        private void axMapControl1_OnExtentUpdated(object sender, 
+            IMapControlEvents2_OnExtentUpdatedEvent e)
+        {
+            IEnvelope pEnv = e.newEnvelope as IEnvelope;
+            IGraphicsContainer pGraphicsContainer = poverView.axMapControl1.Map
+                as IGraphicsContainer;
+            IActiveView pActiveView = pGraphicsContainer as IActiveView;
+            pGraphicsContainer.DeleteAllElements();
+            IRectangleElement pRectangleEle = new RectangleElementClass();
+            IElement pEle = pRectangleEle as IElement;
+            pEle.Geometry = pEnv;
+            IRgbColor pColor = new RgbColorClass();
+            pColor.RGB = 255;
+            pColor.Transparency = 255;
+            ILineSymbol pOutline = new SimpleLineSymbolClass();
+            pOutline.Width = 1;
+            pOutline.Color = pColor;
+            pColor = new RgbColorClass();
+            pColor.RGB = 255;
+            pColor.Transparency = 0;
+            IFillSymbol pFillSymbol;
+            pFillSymbol = new SimpleFillSymbolClass();
+            pFillSymbol.Color = pColor;
+            pFillSymbol.Outline = pOutline;
+            IFillShapeElement pFillShapeEle = pEle as IFillShapeElement;
+            pFillShapeEle.Symbol = pFillSymbol;
+            pEle = pFillShapeEle as IElement;
+            pGraphicsContainer.AddElement(pEle, 0);
+            pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
         }
 
        

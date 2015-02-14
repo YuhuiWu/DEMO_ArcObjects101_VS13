@@ -53,6 +53,7 @@ namespace MapControl_Demo
             this.DataView = new System.Windows.Forms.TabPage();
             this.LayoutView = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -143,6 +144,7 @@ namespace MapControl_Demo
             this.axMapControl1.Size = new System.Drawing.Size(654, 480);
             this.axMapControl1.TabIndex = 2;
             this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
+            this.axMapControl1.OnExtentUpdated += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnExtentUpdatedEventHandler(this.axMapControl1_OnExtentUpdated);
             this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced);
             // 
             // axToolbarControl1
@@ -243,11 +245,22 @@ namespace MapControl_Demo
             this.axPageLayoutControl1.Size = new System.Drawing.Size(654, 480);
             this.axPageLayoutControl1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(726, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "EagleEye";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 586);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.axLicenseControl1);
             this.Controls.Add(this.axTOCControl1);
@@ -298,6 +311,7 @@ namespace MapControl_Demo
         private System.Windows.Forms.TabPage DataView;
         private System.Windows.Forms.TabPage LayoutView;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

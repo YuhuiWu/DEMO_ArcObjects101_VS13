@@ -42,6 +42,9 @@
     <Reference Include="ESRI.ArcGIS.ADF.Local">
       <Private>False</Private>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Version">
       <Private>False</Private>
     </Reference>
@@ -79,6 +82,12 @@
   <ItemGroup>
     <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="CreateNewDocument.cs" />
+    <Compile Include="EagleEyes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EagleEyes.Designer.cs">
+      <DependentUpon>EagleEyes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +98,9 @@
     <Compile Include="OpenNewMapDocument.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EagleEyes.resx">
+      <DependentUpon>EagleEyes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
