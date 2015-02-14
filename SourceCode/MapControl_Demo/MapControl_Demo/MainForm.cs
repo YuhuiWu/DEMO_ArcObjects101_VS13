@@ -245,6 +245,35 @@ namespace MapControl_Demo
                     m_TocLayerMenu.PopupMenu(e.x, e.y, axTOCControl1.hWnd);
                 }
             }
+            if (e.button == 1)
+            {
+                if (layer == null)
+                    return;
+                IFeatureLayer featurelayer = layer as IFeatureLayer;
+                if (featurelayer == null)
+                    return;
+                IGeoFeatureLayer geoFeatureLayer = (IGeoFeatureLayer)featurelayer;
+                ILegendClass legendClass = new LegendClassClass();
+                ISymbol symbol = null;
+                if (other is ILegendGroup && (int)index != -1)
+                {
+                    legendClass = ((ILegendGroup)other).get_Class((int)index);
+                    symbol = legendClass.Symbol;
+                }
+                if (symbol == null)
+                    return;
+                symbol = GetSymbolByControl(symbol);
+                if (symbol == null)
+                    return;
+                legendClass.Symbol = symbol;
+                this.Activate();
+                //((IActiveView)m_MapDocument.get_Map(0)).ContentsChanged();
+
+                axMapControl1.ActiveView.ContentsChanged();
+                axMapControl1.Refresh(esriViewDrawPhase.esriViewGeography, null, null);
+                axMapControl1.Refresh();
+                axTOCControl1.Update();
+            }
         }
 
         private void method1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -406,6 +435,35 @@ namespace MapControl_Demo
                 m_controlsSynchronizer.PageLayoutControl.ActiveView.
                     PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
             }
+        }
+        private ISymbol GetSymbolByControl(ISymbol symbolType)
+        {
+            ISymbol symbol = null;
+            IStyleGalleryItem styleGalleryItem = null;
+            esriSymbologyStyleClass styleClass = esriSymbologyStyleClass.
+                esriStyleClassMarkerSymbols;
+            if (symbolType is IMarkerSymbol)
+            {
+                styleClass = esriSymbologyStyleClass.esriStyleClassMarkerSymbols;
+            }
+            if (symbolType is ILineSymbol)
+            {
+                styleClass = esriSymbologyStyleClass.esriStyleClassLineSymbols;
+            }
+            if (symbolType is IFillSymbol)
+            {
+                styleClass = esriSymbologyStyleClass.esriStyleClassFillSymbols;
+            }
+
+            GetSymbol symbolForm = new GetSymbol(styleClass);
+            symbolForm.ShowDialog();
+            styleGalleryItem = symbolForm.m_styleGalleryItem;
+            if (styleGalleryItem == null)
+                return null;
+            symbol = styleGalleryItem.Item as ISymbol;
+            symbolForm.Dispose();
+            this.Activate();
+            return symbol;
         }
     }
 }

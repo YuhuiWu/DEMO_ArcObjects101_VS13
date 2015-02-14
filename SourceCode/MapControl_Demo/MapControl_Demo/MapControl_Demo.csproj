@@ -74,6 +74,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,6 +97,12 @@
     <Compile Include="EagleEyes.Designer.cs">
       <DependentUpon>EagleEyes.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetSymbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetSymbol.Designer.cs">
+      <DependentUpon>GetSymbol.cs</DependentUpon>
+    </Compile>
     <Compile Include="LayerAttributes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +122,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EagleEyes.resx">
       <DependentUpon>EagleEyes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetSymbol.resx">
+      <DependentUpon>GetSymbol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LayerAttributes.resx">
       <DependentUpon>LayerAttributes.cs</DependentUpon>
