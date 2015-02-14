@@ -26,6 +26,7 @@ namespace MapControl_Demo
         private ControlsSynchronizer m_controlsSynchronizer = null;
         private IPageLayoutControl3 m_pageLayoutControl = null;//Layout View
         private EagleEyes poverView;
+        IToolbarMenu m_TocLayerMenu = new ToolbarMenuClass();
         #endregion
 
         #region class constructor
@@ -52,6 +53,9 @@ namespace MapControl_Demo
     
             OpenNewMapDocument openMapDoc = new OpenNewMapDocument(m_controlsSynchronizer);
             axToolbarControl1.AddItem(openMapDoc, -1, 0, false, -1, esriCommandStyles.esriCommandStyleIconOnly);
+            m_TocLayerMenu.AddItem(new OpenAttributeTableCmd(), 0, 0, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_TocLayerMenu.SetHook(axMapControl1);
+
         }
 
         #region Main Menu event handlers
@@ -222,6 +226,24 @@ namespace MapControl_Demo
             pEle = pFillShapeEle as IElement;
             pGraphicsContainer.AddElement(pEle, 0);
             pActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
+        }
+
+        private void axTOCControl1_OnMouseDown(object sender, ITOCControlEvents_OnMouseDownEvent e)
+        {
+            IBasicMap map = new MapClass();
+            ILayer layer = new FeatureLayerClass();
+            object other = new object();
+            object index = new object();
+            esriTOCControlItem item = new esriTOCControlItem();
+            axTOCControl1.HitTest(e.x, e.y, ref item, ref map, ref layer, ref other, ref index);
+            if (e.button == 2)
+            {
+                if (layer is IFeatureLayer)
+                {
+                    m_controlsSynchronizer.MapControl.CustomProperty = layer;
+                    m_TocLayerMenu.PopupMenu(e.x, e.y, axTOCControl1.hWnd);
+                }
+            }
         }
 
        
