@@ -497,5 +497,12 @@ namespace MapControl_Demo
             command.OnCreate(m_mapControl.Object);
             command.OnClick();
         }
+
+        private void tableSortToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand command = new TableSortCmd();
+            command.OnCreate(m_mapControl.Object);
+            command.OnClick();
+        }
     }
 }
