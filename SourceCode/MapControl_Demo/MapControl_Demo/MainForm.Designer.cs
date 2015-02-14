@@ -54,6 +54,9 @@ namespace MapControl_Demo
             this.LayoutView = new System.Windows.Forms.TabPage();
             this.axPageLayoutControl1 = new ESRI.ArcGIS.Controls.AxPageLayoutControl();
             this.button1 = new System.Windows.Forms.Button();
+            this.addCadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.method1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.method2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -69,7 +72,8 @@ namespace MapControl_Demo
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuFile});
+            this.menuFile,
+            this.addCadToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -256,6 +260,29 @@ namespace MapControl_Demo
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // addCadToolStripMenuItem
+            // 
+            this.addCadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.method1ToolStripMenuItem,
+            this.method2ToolStripMenuItem});
+            this.addCadToolStripMenuItem.Name = "addCadToolStripMenuItem";
+            this.addCadToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.addCadToolStripMenuItem.Text = "Add Cad";
+            // 
+            // method1ToolStripMenuItem
+            // 
+            this.method1ToolStripMenuItem.Name = "method1ToolStripMenuItem";
+            this.method1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.method1ToolStripMenuItem.Text = "Method #1";
+            this.method1ToolStripMenuItem.Click += new System.EventHandler(this.method1ToolStripMenuItem_Click);
+            // 
+            // method2ToolStripMenuItem
+            // 
+            this.method2ToolStripMenuItem.Name = "method2ToolStripMenuItem";
+            this.method2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.method2ToolStripMenuItem.Text = "Method #2";
+            this.method2ToolStripMenuItem.Click += new System.EventHandler(this.method2ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +340,9 @@ namespace MapControl_Demo
         private System.Windows.Forms.TabPage LayoutView;
         private ESRI.ArcGIS.Controls.AxPageLayoutControl axPageLayoutControl1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem addCadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem method1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem method2ToolStripMenuItem;
     }
 }
 

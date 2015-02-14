@@ -14,7 +14,8 @@ using ESRI.ArcGIS.ADF;
 using ESRI.ArcGIS.SystemUI;
 using ESRI.ArcGIS.Geometry;
 using ESRI.ArcGIS.Display;
-
+using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.DataSourcesFile;
 namespace MapControl_Demo
 {
     public sealed partial class MainForm : Form
@@ -246,6 +247,73 @@ namespace MapControl_Demo
             }
         }
 
-       
+        private void method1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = 
+                new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Filter = "CAD (*.dwg)|*.dwg";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.Multiselect = false;
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filename = openFileDialog.FileName;
+                if (filename != "")
+                {
+                    //axMapControl1.ClearLayers();
+                    IWorkspaceFactory pCadWorkspaceFactory = 
+                        new CadWorkspaceFactory();
+                    IWorkspace pWorkspace = pCadWorkspaceFactory.OpenFromFile(
+                        System.IO.Path.GetDirectoryName(filename), 0);
+                    ICadDrawingWorkspace pCadDrawingWorkspace = 
+                        (ICadDrawingWorkspace)pWorkspace;
+                    ICadDrawingDataset pCadDataset = 
+                        pCadDrawingWorkspace.OpenCadDrawingDataset(
+                        System.IO.Path.GetFileName(filename));
+                    ICadLayer pCadLayer = new CadLayerClass();
+                    pCadLayer.CadDrawingDataset = pCadDataset;
+                    axMapControl1.AddLayer(pCadLayer, 0);
+                }
+            }
+        }
+
+        private void method2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = 
+                new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Filter = "CAD (*.dwg)|*.dwg";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.Multiselect = false;
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string filename = openFileDialog.FileName;
+                if (filename != "")
+                {
+                    //axMapControl1.ClearLayers();
+                    IWorkspaceFactory pCadWorkspaceFactory = new CadWorkspaceFactory();
+                    IFeatureWorkspace pWorkspace = pCadWorkspaceFactory.OpenFromFile(
+                        System.IO.Path.GetDirectoryName(filename), 0) as IFeatureWorkspace;
+                    IFeatureDataset pFeatureDataset = pWorkspace.OpenFeatureDataset(
+                        System.IO.Path.GetFileName(filename));
+                    IFeatureClassContainer pFeatureClassContainer = 
+                        pFeatureDataset as IFeatureClassContainer;
+                    IFeatureClass pFeatureClass;
+                    IFeatureLayer pFeatureLayer;
+                    for (int i = 0; i < pFeatureClassContainer.ClassCount; i++)
+                    {
+                        pFeatureClass = pFeatureClassContainer.get_Class(i);
+                        if (pFeatureClass.FeatureType == 
+                            esriFeatureType.esriFTCoverageAnnotation)
+                            pFeatureLayer = new CadAnnotationLayerClass();
+                        else
+                            pFeatureLayer = new FeatureLayerClass();
+                        pFeatureLayer.Name = pFeatureClass.AliasName;
+                        pFeatureLayer.FeatureClass = pFeatureClass;
+                        axMapControl1.AddLayer(pFeatureLayer, 0);
+                    }
+                }
+            }
+        }
     }
 }
