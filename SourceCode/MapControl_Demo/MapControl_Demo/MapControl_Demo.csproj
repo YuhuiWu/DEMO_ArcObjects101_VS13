@@ -51,6 +51,9 @@
     <Reference Include="ESRI.ArcGIS.Geometry, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Output, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.Version">
       <Private>False</Private>
     </Reference>
@@ -74,6 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -99,6 +103,13 @@
     <Compile Include="EagleEyes.Designer.cs">
       <DependentUpon>EagleEyes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportView.cs" />
     <Compile Include="GetSymbol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +135,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EagleEyes.resx">
       <DependentUpon>EagleEyes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GetSymbol.resx">
       <DependentUpon>GetSymbol.cs</DependentUpon>
@@ -157,6 +171,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ExportView.bmp" />
     <EmbeddedResource Include="AddNortharrow.bmp" />
     <EmbeddedResource Include="AddNortharrow.cur" />
     <EmbeddedResource Include="AddScaleBar.bmp" />

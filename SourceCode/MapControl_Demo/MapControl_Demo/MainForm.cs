@@ -51,7 +51,10 @@ namespace MapControl_Demo
             //In order to switch MapControl and PageLayoutControl, we need to add Framework Control
             m_controlsSynchronizer.AddFrameworkControl(axToolbarControl1.Object);
             m_controlsSynchronizer.AddFrameworkControl(this.axTOCControl1.Object);
-    
+            IHookHelper hookHelper = new HookHelperClass();
+            //hookHelper.Hook = axMapControl1.Object;
+            hookHelper.Hook = m_controlsSynchronizer.MapControl.Object;
+            poverView = new EagleEyes(hookHelper);
             OpenNewMapDocument openMapDoc = new OpenNewMapDocument(m_controlsSynchronizer);
             axToolbarControl1.AddItem(openMapDoc, -1, 0, false, -1, esriCommandStyles.esriCommandStyleIconOnly);
             m_TocLayerMenu.AddItem(new OpenAttributeTableCmd(), 0, 0, false, esriCommandStyles.esriCommandStyleIconAndText);
@@ -478,6 +481,14 @@ namespace MapControl_Demo
             ICommand addScaleBar = new AddScaleBar();
             addScaleBar.OnCreate(axPageLayoutControl1.Object);
             axPageLayoutControl1.CurrentTool = addScaleBar as ITool;
+        }
+
+        private void exportAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand export = new ExportView();
+            export.OnCreate(axPageLayoutControl1.Object);
+            export.OnClick();
+            axPageLayoutControl1.CurrentTool = export as ITool;
         }
     }
 }
