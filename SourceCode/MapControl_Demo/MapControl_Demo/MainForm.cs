@@ -490,5 +490,12 @@ namespace MapControl_Demo
             export.OnClick();
             axPageLayoutControl1.CurrentTool = export as ITool;
         }
+
+        private void queryByAttributeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand command = new AttributeQueryCmd();
+            command.OnCreate(m_mapControl.Object);
+            command.OnClick();
+        }
     }
 }

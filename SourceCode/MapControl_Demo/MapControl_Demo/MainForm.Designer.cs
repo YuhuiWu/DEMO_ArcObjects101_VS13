@@ -66,6 +66,8 @@ namespace MapControl_Demo
             this.scaleBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spatialQueryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queryByAttributeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -84,7 +86,8 @@ namespace MapControl_Demo
             this.menuFile,
             this.addCadToolStripMenuItem,
             this.gridAndLegendToolStripMenuItem,
-            this.exportToolStripMenuItem});
+            this.exportToolStripMenuItem,
+            this.spatialQueryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -364,6 +367,21 @@ namespace MapControl_Demo
             this.exportAsToolStripMenuItem.Text = "Export As";
             this.exportAsToolStripMenuItem.Click += new System.EventHandler(this.exportAsToolStripMenuItem_Click);
             // 
+            // spatialQueryToolStripMenuItem
+            // 
+            this.spatialQueryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.queryByAttributeToolStripMenuItem});
+            this.spatialQueryToolStripMenuItem.Name = "spatialQueryToolStripMenuItem";
+            this.spatialQueryToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.spatialQueryToolStripMenuItem.Text = "Spatial Query";
+            // 
+            // queryByAttributeToolStripMenuItem
+            // 
+            this.queryByAttributeToolStripMenuItem.Name = "queryByAttributeToolStripMenuItem";
+            this.queryByAttributeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.queryByAttributeToolStripMenuItem.Text = "Query By Attribute";
+            this.queryByAttributeToolStripMenuItem.Click += new System.EventHandler(this.queryByAttributeToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,6 +451,8 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem scaleBarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spatialQueryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queryByAttributeToolStripMenuItem;
     }
 }
 

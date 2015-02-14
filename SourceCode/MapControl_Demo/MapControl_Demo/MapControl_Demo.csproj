@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="AddNortharrow.cs" />
     <Compile Include="AddScaleBar.cs" />
+    <Compile Include="AttributeQueryCmd.cs" />
     <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="CreateNewDocument.cs" />
     <Compile Include="EagleEyes.cs">
@@ -133,6 +134,12 @@
     <Compile Include="OpenNewMapDocument.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectByAttribute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectByAttribute.Designer.cs">
+      <DependentUpon>SelectByAttribute.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EagleEyes.resx">
       <DependentUpon>EagleEyes.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +166,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SelectByAttribute.resx">
+      <DependentUpon>SelectByAttribute.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -177,6 +187,7 @@
     <EmbeddedResource Include="AddScaleBar.bmp" />
     <EmbeddedResource Include="AddScaleBar.cur" />
     <Content Include="App.ico" />
+    <EmbeddedResource Include="AttributeQueryCmd.bmp" />
     <Content Include="Earth.ico" />
     <EmbeddedResource Include="OpenAttributeTableCmd.bmp" />
     <EmbeddedResource Include="OpenNewMapDocument.bmp" />
