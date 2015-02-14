@@ -71,6 +71,7 @@ namespace MapControl_Demo
             this.tableSortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spatialAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bufferAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.overlayAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -397,7 +398,8 @@ namespace MapControl_Demo
             // spatialAnalysisToolStripMenuItem
             // 
             this.spatialAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bufferAnalysisToolStripMenuItem});
+            this.bufferAnalysisToolStripMenuItem,
+            this.overlayAnalysisToolStripMenuItem});
             this.spatialAnalysisToolStripMenuItem.Name = "spatialAnalysisToolStripMenuItem";
             this.spatialAnalysisToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
             this.spatialAnalysisToolStripMenuItem.Text = "Spatial Analysis";
@@ -408,6 +410,13 @@ namespace MapControl_Demo
             this.bufferAnalysisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bufferAnalysisToolStripMenuItem.Text = "Buffer Analysis";
             this.bufferAnalysisToolStripMenuItem.Click += new System.EventHandler(this.bufferAnalysisToolStripMenuItem_Click);
+            // 
+            // overlayAnalysisToolStripMenuItem
+            // 
+            this.overlayAnalysisToolStripMenuItem.Name = "overlayAnalysisToolStripMenuItem";
+            this.overlayAnalysisToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.overlayAnalysisToolStripMenuItem.Text = "Overlay Analysis";
+            this.overlayAnalysisToolStripMenuItem.Click += new System.EventHandler(this.overlayAnalysisToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -483,6 +492,7 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem tableSortToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spatialAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bufferAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overlayAnalysisToolStripMenuItem;
     }
 }
 
