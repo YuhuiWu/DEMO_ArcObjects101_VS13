@@ -108,6 +108,8 @@
       <DependentUpon>BufferAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="BufferAnalysisCmd.cs" />
+    <Compile Include="ClearCurrentTool.cs" />
+    <Compile Include="ClearFeatureSelection.cs" />
     <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="CreateNewDocument.cs" />
     <Compile Include="EagleEyes.cs">
@@ -160,6 +162,8 @@
     <Compile Include="OverlayAnalysisCmd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refresh.cs" />
+    <Compile Include="RemoveLayerCmd.cs" />
     <Compile Include="SelectByAttribute.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +177,8 @@
       <DependentUpon>TableSort.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSortCmd.cs" />
+    <Compile Include="TurnAllLayersOffCmd.cs" />
+    <Compile Include="TurnAllLayersOnCmd.cs" />
     <EmbeddedResource Include="BufferAnalysis.resx">
       <DependentUpon>BufferAnalysis.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +232,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Refresh.bmp" />
+    <EmbeddedResource Include="TurnAllLayersOffCmd.bmp" />
+    <EmbeddedResource Include="TurnAllLayersOnCmd.bmp" />
+    <EmbeddedResource Include="RemoveLayerCmd.bmp" />
     <EmbeddedResource Include="GraduatedColorSymbolsCmd.bmp" />
     <EmbeddedResource Include="OverlayAnalysisCmd.bmp" />
     <EmbeddedResource Include="TableSortCmd.bmp" />
@@ -237,6 +247,8 @@
     <Content Include="App.ico" />
     <EmbeddedResource Include="AttributeQueryCmd.bmp" />
     <EmbeddedResource Include="BufferAnalysisCmd.bmp" />
+    <EmbeddedResource Include="ClearCurrentTool.bmp" />
+    <EmbeddedResource Include="ClearFeatureSelection.bmp" />
     <Content Include="Earth.ico" />
     <EmbeddedResource Include="OpenAttributeTableCmd.bmp" />
     <EmbeddedResource Include="OpenNewMapDocument.bmp" />

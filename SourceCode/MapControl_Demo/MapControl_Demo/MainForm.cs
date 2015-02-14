@@ -28,6 +28,8 @@ namespace MapControl_Demo
         private IPageLayoutControl3 m_pageLayoutControl = null;//Layout View
         private EagleEyes poverView;
         IToolbarMenu m_TocLayerMenu = new ToolbarMenuClass();
+        IToolbarMenu m_TocMapMenu = new ToolbarMenuClass();
+        IToolbarMenu m_toolbarMenu = new ToolbarMenuClass();
         #endregion
 
         #region class constructor
@@ -57,8 +59,21 @@ namespace MapControl_Demo
             poverView = new EagleEyes(hookHelper);
             OpenNewMapDocument openMapDoc = new OpenNewMapDocument(m_controlsSynchronizer);
             axToolbarControl1.AddItem(openMapDoc, -1, 0, false, -1, esriCommandStyles.esriCommandStyleIconOnly);
+      
+
             m_TocLayerMenu.AddItem(new OpenAttributeTableCmd(), 0, 0, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_TocLayerMenu.AddItem(new RemoveLayerCmd(), 0, 1, false, esriCommandStyles.esriCommandStyleIconAndText);
             m_TocLayerMenu.SetHook(axMapControl1);
+
+            m_TocMapMenu.AddItem(new ControlsAddDataCommandClass(), 0, -1, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_TocMapMenu.AddItem(new TurnAllLayersOnCmd(), 0, -1, true, esriCommandStyles.esriCommandStyleIconAndText);
+            m_TocMapMenu.AddItem(new TurnAllLayersOffCmd(), 0, -1, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_TocMapMenu.SetHook(axMapControl1);
+ 
+            m_toolbarMenu.AddItem(new ClearCurrentTool(), 0, -1, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_toolbarMenu.AddItem(new ClearFeatureSelection(), 0, -1, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_toolbarMenu.AddItem(new Refresh(), 0, -1, false, esriCommandStyles.esriCommandStyleIconAndText);
+            m_toolbarMenu.SetHook(axMapControl1);
 
         }
 
@@ -242,7 +257,12 @@ namespace MapControl_Demo
             axTOCControl1.HitTest(e.x, e.y, ref item, ref map, ref layer, ref other, ref index);
             if (e.button == 2)
             {
-                if (layer is IFeatureLayer)
+                if (item == esriTOCControlItem.esriTOCControlItemMap)
+                {
+                    m_controlsSynchronizer.MapControl.CustomProperty = map;
+                    m_TocMapMenu.PopupMenu(e.x, e.y, axTOCControl1.hWnd);
+                }
+                else if (layer is IFeatureLayer)
                 {
                     m_controlsSynchronizer.MapControl.CustomProperty = layer;
                     m_TocLayerMenu.PopupMenu(e.x, e.y, axTOCControl1.hWnd);
@@ -524,6 +544,22 @@ namespace MapControl_Demo
             ICommand command = new GraduatedColorSymbolsCmd();
             command.OnCreate(axMapControl1.Object);
             command.OnClick();
+        }
+
+        private void axMapControl1_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
+        {
+            if (e.button == 2)
+            {
+                if (e.button == 2) m_toolbarMenu.PopupMenu(e.x, e.y, axMapControl1.hWnd);
+            }
+        }
+
+        private void axMapControl1_OnViewRefreshed(object sender, IMapControlEvents2_OnViewRefreshedEvent e)
+        {
+            if (m_mapControl != null)
+            {
+                axTOCControl1.Update();
+            }
         }
     }
 }
