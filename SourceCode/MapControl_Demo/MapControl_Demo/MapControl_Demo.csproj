@@ -42,6 +42,7 @@
     <Reference Include="ESRI.ArcGIS.ADF.Local">
       <Private>False</Private>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.AnalysisTools, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.DataSourcesFile, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -51,6 +52,10 @@
     <Reference Include="ESRI.ArcGIS.Geometry, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Geoprocessing, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geoprocessor, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.Output, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -96,6 +101,13 @@
     <Compile Include="AddNortharrow.cs" />
     <Compile Include="AddScaleBar.cs" />
     <Compile Include="AttributeQueryCmd.cs" />
+    <Compile Include="BufferAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BufferAnalysis.Designer.cs">
+      <DependentUpon>BufferAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BufferAnalysisCmd.cs" />
     <Compile Include="ControlsSynchronizer.cs" />
     <Compile Include="CreateNewDocument.cs" />
     <Compile Include="EagleEyes.cs">
@@ -147,6 +159,9 @@
       <DependentUpon>TableSort.cs</DependentUpon>
     </Compile>
     <Compile Include="TableSortCmd.cs" />
+    <EmbeddedResource Include="BufferAnalysis.resx">
+      <DependentUpon>BufferAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EagleEyes.resx">
       <DependentUpon>EagleEyes.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +214,7 @@
     <EmbeddedResource Include="AddScaleBar.cur" />
     <Content Include="App.ico" />
     <EmbeddedResource Include="AttributeQueryCmd.bmp" />
+    <EmbeddedResource Include="BufferAnalysisCmd.bmp" />
     <Content Include="Earth.ico" />
     <EmbeddedResource Include="OpenAttributeTableCmd.bmp" />
     <EmbeddedResource Include="OpenNewMapDocument.bmp" />

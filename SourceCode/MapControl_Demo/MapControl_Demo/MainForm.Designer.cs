@@ -69,6 +69,8 @@ namespace MapControl_Demo
             this.spatialQueryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryByAttributeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableSortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spatialAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bufferAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -88,7 +90,8 @@ namespace MapControl_Demo
             this.addCadToolStripMenuItem,
             this.gridAndLegendToolStripMenuItem,
             this.exportToolStripMenuItem,
-            this.spatialQueryToolStripMenuItem});
+            this.spatialQueryToolStripMenuItem,
+            this.spatialAnalysisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -391,6 +394,21 @@ namespace MapControl_Demo
             this.tableSortToolStripMenuItem.Text = "Table Sort";
             this.tableSortToolStripMenuItem.Click += new System.EventHandler(this.tableSortToolStripMenuItem_Click);
             // 
+            // spatialAnalysisToolStripMenuItem
+            // 
+            this.spatialAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bufferAnalysisToolStripMenuItem});
+            this.spatialAnalysisToolStripMenuItem.Name = "spatialAnalysisToolStripMenuItem";
+            this.spatialAnalysisToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
+            this.spatialAnalysisToolStripMenuItem.Text = "Spatial Analysis";
+            // 
+            // bufferAnalysisToolStripMenuItem
+            // 
+            this.bufferAnalysisToolStripMenuItem.Name = "bufferAnalysisToolStripMenuItem";
+            this.bufferAnalysisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bufferAnalysisToolStripMenuItem.Text = "Buffer Analysis";
+            this.bufferAnalysisToolStripMenuItem.Click += new System.EventHandler(this.bufferAnalysisToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,6 +481,8 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem spatialQueryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queryByAttributeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tableSortToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spatialAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bufferAnalysisToolStripMenuItem;
     }
 }
 
