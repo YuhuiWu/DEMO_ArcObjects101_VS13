@@ -518,5 +518,12 @@ namespace MapControl_Demo
             command.OnCreate(m_mapControl.Object);
             command.OnClick();
         }
+
+        private void gradualColorSymbolizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ICommand command = new GraduatedColorSymbolsCmd();
+            command.OnCreate(axMapControl1.Object);
+            command.OnClick();
+        }
     }
 }

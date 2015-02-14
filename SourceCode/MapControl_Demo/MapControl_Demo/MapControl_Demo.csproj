@@ -129,6 +129,13 @@
     <Compile Include="GetSymbol.Designer.cs">
       <DependentUpon>GetSymbol.cs</DependentUpon>
     </Compile>
+    <Compile Include="GraduatedColorSymbolize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraduatedColorSymbolize.Designer.cs">
+      <DependentUpon>GraduatedColorSymbolize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraduatedColorSymbolsCmd.cs" />
     <Compile Include="LayerAttributes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +185,9 @@
     <EmbeddedResource Include="GetSymbol.resx">
       <DependentUpon>GetSymbol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraduatedColorSymbolize.resx">
+      <DependentUpon>GraduatedColorSymbolize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LayerAttributes.resx">
       <DependentUpon>LayerAttributes.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +226,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GraduatedColorSymbolsCmd.bmp" />
     <EmbeddedResource Include="OverlayAnalysisCmd.bmp" />
     <EmbeddedResource Include="TableSortCmd.bmp" />
     <EmbeddedResource Include="ExportView.bmp" />

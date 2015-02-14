@@ -72,6 +72,8 @@ namespace MapControl_Demo
             this.spatialAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bufferAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overlayAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.symbolizedMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gradualColorSymbolizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
@@ -92,7 +94,8 @@ namespace MapControl_Demo
             this.gridAndLegendToolStripMenuItem,
             this.exportToolStripMenuItem,
             this.spatialQueryToolStripMenuItem,
-            this.spatialAnalysisToolStripMenuItem});
+            this.spatialAnalysisToolStripMenuItem,
+            this.symbolizedMapToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(859, 24);
@@ -418,6 +421,21 @@ namespace MapControl_Demo
             this.overlayAnalysisToolStripMenuItem.Text = "Overlay Analysis";
             this.overlayAnalysisToolStripMenuItem.Click += new System.EventHandler(this.overlayAnalysisToolStripMenuItem_Click);
             // 
+            // symbolizedMapToolStripMenuItem
+            // 
+            this.symbolizedMapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gradualColorSymbolizeToolStripMenuItem});
+            this.symbolizedMapToolStripMenuItem.Name = "symbolizedMapToolStripMenuItem";
+            this.symbolizedMapToolStripMenuItem.Size = new System.Drawing.Size(107, 20);
+            this.symbolizedMapToolStripMenuItem.Text = "Symbolized Map";
+            // 
+            // gradualColorSymbolizeToolStripMenuItem
+            // 
+            this.gradualColorSymbolizeToolStripMenuItem.Name = "gradualColorSymbolizeToolStripMenuItem";
+            this.gradualColorSymbolizeToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.gradualColorSymbolizeToolStripMenuItem.Text = "Gradual Color Symbolize";
+            this.gradualColorSymbolizeToolStripMenuItem.Click += new System.EventHandler(this.gradualColorSymbolizeToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,6 +511,8 @@ namespace MapControl_Demo
         private System.Windows.Forms.ToolStripMenuItem spatialAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bufferAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem overlayAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem symbolizedMapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gradualColorSymbolizeToolStripMenuItem;
     }
 }
 
