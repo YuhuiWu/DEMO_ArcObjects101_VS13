@@ -167,7 +167,8 @@ namespace MapControl_Demo
         private void SetupEvents()
         {
             activeViewEvent = m_activeView as IActiveViewEvents_Event;
-            mapSelectionChanged = new IActiveViewEvents_SelectionChangedEventHandler(OnFeatureLayerSelectionChanged);
+            mapSelectionChanged = new 
+                IActiveViewEvents_SelectionChangedEventHandler(OnFeatureLayerSelectionChanged);
             activeViewEvent.SelectionChanged += mapSelectionChanged;
         }
     }

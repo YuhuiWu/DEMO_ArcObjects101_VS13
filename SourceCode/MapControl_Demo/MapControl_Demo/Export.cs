@@ -141,8 +141,7 @@ namespace MapControl_Demo
             IActiveView pActiveView = axPageLayoutControl1.ActiveView;
             double iScreenResolution = pActiveView.ScreenDisplay.
                 DisplayTransformation.Resolution;
-            tagRECT exportRECT;
-            exportRECT.left = 0; exportRECT.top = 0;
+            tagRECT exportRECT;exportRECT.left = 0; exportRECT.top = 0;
             exportRECT.right = Convert.ToInt32(Math.Ceiling(pActiveView.ExportFrame.
                 right * (iOutputResolution / iScreenResolution)));
             exportRECT.bottom = Convert.ToInt32(Math.Round(pActiveView.ExportFrame.

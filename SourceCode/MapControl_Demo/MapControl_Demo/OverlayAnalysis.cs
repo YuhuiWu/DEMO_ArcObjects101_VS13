@@ -435,7 +435,7 @@ namespace MapControl_Demo
                     break;
             }
             txtMessages.Text += ReturnMessages(gp);
-            txtMessages.Text += "\r\n叠置分析完成.\r\n";
+            txtMessages.Text += "\r\nOverlay Analysis Finsihed.\r\n";
             txtMessages.Text += DateAndTime.Now.ToString() + "\r\n";
             txtMessages.Text += "-------------------------------------------------------\r\n";
             ScrollToBottom(txtMessages);

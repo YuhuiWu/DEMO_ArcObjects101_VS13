@@ -66,8 +66,7 @@ namespace MapControl_Demo
                                 listBoxFields.Items.Add(pFeatureLayer.FeatureClass.Fields.get_Field(j).Name);
                             }
                             labelDescription2.Text = strSelectedLayerName;
-                        }
-                        else
+                        }else
                         {
                             MessageBox.Show("This Layer could be queried! Please choose another");
                             break;
@@ -75,8 +74,7 @@ namespace MapControl_Demo
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex){
                 MessageBox.Show(ex.Message);
             }
         }

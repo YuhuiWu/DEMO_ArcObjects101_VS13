@@ -156,7 +156,6 @@ namespace MapControl_Demo
             }
         }
         string strBufferField;
-
         private void cboBufferField_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rdoBufferField.Checked)
@@ -169,7 +168,6 @@ namespace MapControl_Demo
             }
         }
         string strSideType;
-
         private void cboSideType_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedSideType;
@@ -193,7 +191,6 @@ namespace MapControl_Demo
             }
         }
         string strEndType;
-
         private void cboEndType_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedEndType;
